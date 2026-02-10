@@ -192,3 +192,7 @@ footer {
     font-family: sans-serif;
     margin-top: 50px;
 }
+
+html {
+    scroll-behavior: smooth;
+}
