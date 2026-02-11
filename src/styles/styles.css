@@ -196,3 +196,20 @@ footer {
 html {
     scroll-behavior: smooth;
 }
+
+@media (max-width: 768px) {
+    
+    .pages-section {
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        width: 100%;
+        overflow-y: auto;
+        align-self: flex-start;
+        padding-bottom: 25px;
+    }
+
+    .content {
+        margin: 15px;
+    }
+}
