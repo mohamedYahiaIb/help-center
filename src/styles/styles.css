@@ -12,10 +12,13 @@ h1 {
 }
 
 header {
+    position: sticky;
+    top: 0;
+    z-index: 1;
     display: flex;
     align-items: center;
     width: 100%;
-    background-color: #111D5E;;
+    background-color: #111D5E;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -34,17 +37,40 @@ header {
 
 }
 
+.toggle-theme {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    margin-right: 20px;
+    opacity: 1;
+    transition: opacity 0.25s ease, background-color 0.3s ease;
+}
+
+.toggle-theme.fade-icon {
+    opacity: 0;
+}
+
+.toggle-theme:hover {
+    background-color: #4c8afc9b;
+    color: #fff;
+    border-radius: 4px;
+}
+
 .container {
     display: flex;
     align-items: flex-start;
+    transition: background-color 0.5s ease;
 }
+
 
 .pages-section {
     position: sticky;
-    top: 0;
-    height: 100vh;
+    top: 66px;
+    height: calc(100vh - 66px);
     overflow-y: auto;
     align-self: flex-start;
+    padding-bottom: 30px;
 }
 
 .page-link {
@@ -149,6 +175,10 @@ h2 {
     color: #333;
 }
 
+h3 {
+    margin-bottom: 20px;
+}
+
 p {
     font-size: 16px;
     line-height: 1.5;
@@ -190,8 +220,56 @@ footer {
     background-color: #111D5E;;
     color: #ccc;
     font-family: sans-serif;
-    margin-top: 50px;
 }
+
+.dark-mode {
+    background-color: #0f0f0ff6;
+    transition: background-color 0.5s ease;
+}
+
+.dark-mode p {
+    color: #ccc;
+    border-bottom: #ccc 1px solid;
+}
+
+.dark-mode h2, .dark-mode h3, .dark-mode .admin, .dark-mode .account-settings,
+.dark-mode .language, .dark-mode .page-link, .dark-mode .collapsible summary {
+    color: #ccc;
+}
+
+.dark-mode .content-link {
+    color: #66B2FF;
+}
+
+.dark-mode .content-link:hover {
+    text-decoration: underline;
+}
+
+.dark-mode .page-link:not(.admin):not(.account-settings):hover {
+    color: #66B2FF;
+}
+
+.dark-mode .collapsible summary::after {
+    content: "";
+    position: absolute;
+    right: 2px;
+    top: 35%;
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid #ccc;
+    border-bottom: 2px solid #ccc;
+    transform: translateY(-50%) rotate(45deg);
+    transition: transform 0.3s ease;
+} 
+
+.dark-mode .collapsible[open] summary::after {
+    top: 50%; transform: translateY(-50%) rotate(135deg);
+}
+
+.dark-mode .toggle-theme:active {
+    transition: fade-in 0.5s ease;
+}
+
 
 html {
     scroll-behavior: smooth;
@@ -249,4 +327,8 @@ html {
         padding: 15px;
         font-size: 14px;
     }
+}
+
+@keyframes fade-in {
+    from { opacity: 0; } to { opacity: 1; }
 }
