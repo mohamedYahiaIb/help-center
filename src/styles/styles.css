@@ -282,7 +282,7 @@ html {
     }
 
     .pages-section {
-        position: relative;
+        position: static;
         height: auto;
         width: 100%;
         overflow: visible;
